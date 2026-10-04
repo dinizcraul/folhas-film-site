@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {
   Lightbulb, Sun, MonitorSmartphone, Speaker, Palette, Truck, Star, MapPin, Clock,
   ChevronDown, Check, CalendarCheck, Car, Menu, X, Moon, House, HandCoins, UserRound, Store,
+  Bus, Route, KeyRound, Wrench, ThermometerSun, Building2, ShieldCheck,
 } from 'lucide-react'
 import Logo from './components/Logo'
 import CarTint from './components/CarTint'
@@ -15,11 +16,11 @@ const CAT_ICONS = { Insulfilm: Sun, Som: Speaker, Envelopamento: Palette }
 
 const NAV = [
   ['#servicos', 'Serviços'],
-  ['#pelicula', 'Simulador'],
+  ['#leva-e-traz', 'Leva e traz'],
+  ['#onibus', 'Ônibus'],
   ['#agendar', 'Agendar'],
   ['#trabalhos', 'Trabalhos'],
   ['#videos', 'Vídeos'],
-  ['#avaliacoes', 'Avaliações'],
   ['#contato', 'Contato'],
 ]
 
@@ -103,8 +104,8 @@ function Hero() {
             Insulfilm e som <span className="hl">no horário</span> que cabe na sua rotina.
           </h1>
           <p className="lead">
-            Horário combinado pelo WhatsApp, inclusive à noite e no fim de semana, e vamos até você se preferir.
-            Película, som e multimídia com capricho e preço justo em Contagem.
+            Horário combinado pelo WhatsApp, inclusive à noite e no fim de semana. Buscamos e levamos seu carro, ou vamos até você.
+            Película em carros, ônibus e vans, som e multimídia com capricho e preço justo em Contagem.
           </p>
           <div className="hero-ctas">
             <WaButton text="Olá! Vim pelo site e quero um orçamento.">Pedir orçamento no WhatsApp</WaButton>
@@ -112,6 +113,7 @@ function Hero() {
           </div>
           <ul className="hero-bullets">
             <li><Moon size={16} /> Horário flexível</li>
+            <li><Route size={16} /> Leva e traz</li>
             <li><House size={16} /> Atendimento a domicílio</li>
             <li><HandCoins size={16} /> Preço justo</li>
           </ul>
@@ -132,7 +134,7 @@ function TrustBar() {
   const items = [
     [Star, `${BUSINESS.rating} estrelas`, `${BUSINESS.reviews} avaliações no Google`],
     [Moon, 'Horário flexível', 'combinado pelo WhatsApp'],
-    [House, 'Vamos até você', 'película aplicada na sua casa'],
+    [Route, 'Leva e traz', 'buscamos e devolvemos seu carro'],
     [UserRound, 'Dono atende', 'o Claudiney cuida de cada carro'],
   ]
   return (
@@ -173,6 +175,77 @@ function Services() {
               </article>
             )
           })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function PickupDelivery() {
+  const steps = [
+    [CalendarCheck, 'Combine pelo WhatsApp', 'Diga o serviço, o endereço e o melhor horário.'],
+    [KeyRound, 'Buscamos seu carro', 'Pegamos o carro em casa ou no trabalho, no horário marcado.'],
+    [Wrench, 'Serviço com capricho', 'Película, som ou multimídia feitos na loja, sem pressa.'],
+    [Route, 'Devolvemos pronto', 'O carro volta para você no endereço combinado.'],
+  ]
+  return (
+    <section className="section section-alt" id="leva-e-traz">
+      <div className="container">
+        <SectionHead
+          kicker="Leva e traz"
+          title="Seu carro vai e volta, você nem sai de casa"
+          sub="Sem tempo de ir até a loja? A gente busca o carro, faz o serviço e entrega pronto onde você estiver."
+        />
+        <ol className="steps">
+          {steps.map(([Icon, t, d], i) => (
+            <li className="step reveal" key={t}>
+              <span className="step-n">{i + 1}</span>
+              <Icon size={26} />
+              <strong>{t}</strong>
+              <span>{d}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="center reveal">
+          <WaButton text="Olá! Vim pelo site e quero usar o leva e traz. Meu carro é: ">Quero o leva e traz</WaButton>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Buses() {
+  const perks = [
+    [ThermometerSun, 'Menos calor', 'Mais conforto para os passageiros e menos esforço do ar-condicionado.'],
+    [ShieldCheck, 'Privacidade', 'Passageiros e bagagens protegidos dos olhares de fora.'],
+    [Bus, 'Micro-ônibus e vans', 'Ônibus de turismo, fretamento, escolar e vans executivas.'],
+    [Building2, 'Frotas de empresas', 'Orçamento para vários veículos e visual padronizado.'],
+  ]
+  return (
+    <section className="section" id="onibus">
+      <div className="container fleet">
+        <div className="fleet-copy reveal">
+          <span className="kicker">Ônibus, micro-ônibus e vans</span>
+          <h2>Insulfilm também para veículos grandes</h2>
+          <p>
+            Aplicamos película em micro-ônibus, ônibus e vans com o mesmo capricho dos carros:
+            vidros grandes com acabamento liso e uniforme do primeiro ao último.
+          </p>
+          <div className="why">
+            {perks.map(([Icon, t, d]) => (
+              <div key={t} className="why-item"><Icon size={22} /><div><strong>{t}</strong><span>{d}</span></div></div>
+            ))}
+          </div>
+          <div className="hero-ctas">
+            <WaButton text="Olá! Vim pelo site e quero orçamento de insulfilm para ônibus/van. Modelo e quantidade: ">
+              Orçamento para ônibus e vans
+            </WaButton>
+          </div>
+        </div>
+        <div className="fleet-photos reveal">
+          <div className="photo big"><img src={PHOTOS.onibusLateral} alt="Micro-ônibus com película em todos os vidros laterais" loading="lazy" /></div>
+          <div className="photo"><img src={PHOTOS.onibusVidroTraseiro} alt="Vidro traseiro de micro-ônibus com película" loading="lazy" /></div>
+          <div className="photo"><img src={PHOTOS.onibusTraseiraLateral} alt="Lateral e traseira de micro-ônibus com película" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -222,7 +295,7 @@ function Booking() {
   const toggle = (s) => setServices((p) => (p.includes(s) ? p.filter((x) => x !== s) : [...p, s]))
   const msg =
     `Olá, Claudiney! Vim pelo site e quero agendar.\n` +
-    `Carro: ${car || '(informar modelo e ano)'}\n` +
+    `Veículo: ${car || '(informar modelo e ano)'}\n` +
     `Serviço: ${services.join(', ') || '(escolher)'}\n` +
     `Onde: ${where}\n` +
     `Melhor horário: ${period}`
@@ -232,13 +305,13 @@ function Booking() {
         <SectionHead
           kicker="Agende do seu jeito"
           title="Você escolhe o serviço, o lugar e o horário"
-          sub="Na loja ou na sua casa, de manhã, à noite ou no fim de semana. A mensagem chega pronta para o Claudiney."
+          sub="Na loja, na sua casa ou com leva e traz, de manhã, à noite ou no fim de semana. A mensagem chega pronta para o Claudiney."
         />
         <div className="builder reveal">
           <div className="builder-left card">
             <label className="field">
-              <span><Car size={16} /> Modelo e ano do carro</span>
-              <input value={car} onChange={(e) => setCar(e.target.value)} placeholder="Ex.: Renault Oroch 2022" />
+              <span><Car size={16} /> Modelo e ano do veículo</span>
+              <input value={car} onChange={(e) => setCar(e.target.value)} placeholder="Ex.: Renault Oroch 2022 ou micro-ônibus" />
             </label>
             <span className="group-label">Serviços</span>
             <div className="options">
@@ -249,8 +322,8 @@ function Booking() {
               ))}
             </div>
             <span className="group-label">Onde</span>
-            <div className="segmented">
-              {[['Na loja', Store], ['Na minha casa', House]].map(([w, Icon]) => (
+            <div className="segmented three">
+              {[['Na loja', Store], ['Na minha casa', House], ['Leva e traz', Route]].map(([w, Icon]) => (
                 <button key={w} className={where === w ? 'active' : ''} onClick={() => setWhere(w)}><Icon size={16} /> {w}</button>
               ))}
             </div>
@@ -274,13 +347,13 @@ function Booking() {
 }
 
 function Gallery() {
-  const cats = ['Todos', 'Insulfilm', 'Multimídia', 'Residencial', 'Serviços']
+  const cats = ['Todos', 'Insulfilm', 'Ônibus', 'Multimídia', 'Residencial', 'Serviços']
   const [cat, setCat] = useState('Todos')
   const list = GALLERY.filter((g) => cat === 'Todos' || g.cat === cat)
   return (
     <section className="section section-alt" id="trabalhos">
       <div className="container">
-        <SectionHead kicker="Trabalhos realizados" title="Do carro zero à sua casa" sub="Fotos reais de trabalhos recentes da Folha's Film's." />
+        <SectionHead kicker="Trabalhos realizados" title="Do carro zero ao ônibus" sub="Fotos reais de trabalhos recentes da Folha's Film's." />
         <div className="filters reveal">
           {cats.map((c) => <button key={c} className={cat === c ? 'active' : ''} onClick={() => setCat(c)}>{c}</button>)}
         </div>
@@ -309,7 +382,7 @@ function Videos() {
   return (
     <section className="section" id="videos">
       <div className="container">
-        <SectionHead kicker="Vídeos" title="Veja o acabamento de perto" sub="Película aplicada num SUV BYD. Repare no acabamento rente à borracha." />
+        <SectionHead kicker="Vídeos" title="Veja o trabalho de perto" sub="Película no SUV BYD, câmera de ré no retrovisor e carro entregue na porta da cliente." />
         <div className="videos">
           {VIDEOS.map((v) => (
             <figure className="video-card card reveal" key={v.src}>
@@ -326,7 +399,7 @@ function Videos() {
 function About() {
   const why = [
     [Moon, 'Horário flexível', 'Combinado pelo WhatsApp, até à noite e no fim de semana.'],
-    [House, 'Vai até você', 'Película aplicada na sua garagem, se preferir.'],
+    [Route, 'Leva e traz', 'Busca o carro e devolve pronto, ou aplica na sua garagem.'],
     [HandCoins, 'Preço justo', 'O tema mais citado pelos clientes nas avaliações.'],
     [UserRound, 'Atendimento do dono', 'O Claudiney responde cada cliente pessoalmente.'],
   ]
@@ -473,6 +546,8 @@ export default function App() {
         <Hero />
         <TrustBar />
         <Services />
+        <PickupDelivery />
+        <Buses />
         <Simulator />
         <Booking />
         <Gallery />

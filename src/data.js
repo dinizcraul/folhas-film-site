@@ -9,8 +9,13 @@ import residencial from './assets/fotos/residencial-janela.jpg'
 import multEtios from './assets/fotos/multimidia-etios.jpg'
 import multFrontier from './assets/fotos/multimidia-frontier.jpg'
 import frontierPainel from './assets/fotos/frontier-painel.jpg'
+import onibusLateral from './assets/fotos/onibus-lateral.jpg'
+import onibusTraseiraLateral from './assets/fotos/onibus-traseira-lateral.jpg'
+import onibusVidroTraseiro from './assets/fotos/onibus-vidro-traseiro.jpg'
+import onibusInterno from './assets/fotos/onibus-interno.jpg'
+import onibusPainelLed from './assets/fotos/onibus-painel-led.jpg'
 
-export const PHOTOS = { fachada, tiggoTraseiraFachada, tiggoInterna }
+export const PHOTOS = { fachada, tiggoTraseiraFachada, tiggoInterna, onibusLateral, onibusTraseiraLateral, onibusVidroTraseiro }
 
 export const BUSINESS = {
   name: "Folha's Film's Som e Acessórios Automotivos",
@@ -54,7 +59,7 @@ export const SERVICES = [
     icon: 'MonitorSmartphone',
     title: 'Multimídia',
     text: 'Central multimídia instalada com capricho, integrada ao painel do seu carro.',
-    tags: ['Android Auto', 'CarPlay', 'Câmera de ré'],
+    tags: ['Android Auto', 'CarPlay', 'Câmera de ré no retrovisor'],
   },
   {
     id: 'led',
@@ -89,6 +94,7 @@ export const TINTS = [
 
 export const BOOKING_SERVICES = [
   'Insulfilm',
+  'Ônibus / Van',
   'Som',
   'Multimídia',
   'Lâmpadas / LED',
@@ -99,6 +105,11 @@ export const BOOKING_SERVICES = [
 export const PERIODS = ['Manhã', 'Tarde', 'Noite', 'Fim de semana']
 
 export const GALLERY = [
+  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Película em todos os vidros laterais', img: onibusLateral },
+  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Lateral e traseira com película uniforme', img: onibusTraseiraLateral },
+  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Vidro traseiro grande com película', img: onibusVidroTraseiro },
+  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Interior com iluminação em LED', img: onibusInterno },
+  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Painel do teto com detalhes em LED', img: onibusPainelLed },
   { car: 'Chery Tiggo 7 Turbo', cat: 'Insulfilm', desc: 'Película em todos os vidros, na frente da loja', img: tiggoTraseiraFachada },
   { car: 'Chery Tiggo 7 Turbo', cat: 'Insulfilm', desc: 'Acabamento escuro e uniforme em todo o carro', img: tiggoTraseira },
   { car: 'Visão de dentro', cat: 'Insulfilm', desc: 'Com a película, de dentro você continua enxergando tudo', img: tiggoInterna },
@@ -114,6 +125,8 @@ export const GALLERY = [
 export const VIDEOS = [
   { src: 'videos/video-1.mp4#t=1', title: 'Película no SUV BYD', desc: 'Volta completa no carro depois da aplicação.' },
   { src: 'videos/video-2.mp4#t=3', title: 'Detalhe do acabamento', desc: 'De perto: película lisa e rente à borracha.' },
+  { src: 'videos/video-3.mp4#t=2', title: 'Câmera de ré no retrovisor', desc: 'Retrovisor com tela: a imagem da ré aparece direto no espelho.' },
+  { src: 'videos/video-4.mp4#t=1', title: 'Carro entregue na porta', desc: 'Leva e traz: buscamos e devolvemos o carro pronto para a cliente.' },
 ]
 
 export const REVIEWS = [
@@ -157,6 +170,14 @@ export const FAQ = [
   {
     q: 'Vocês vão até a minha casa?',
     a: 'Sim, aplicamos a película no local que for melhor para você. Combine pelo WhatsApp o endereço e o horário.',
+  },
+  {
+    q: 'Como funciona o leva e traz?',
+    a: 'Combinamos pelo WhatsApp, buscamos o carro onde você estiver, fazemos o serviço e devolvemos pronto no endereço e horário combinados. Você não perde tempo.',
+  },
+  {
+    q: 'Vocês aplicam película em ônibus, micro-ônibus e vans?',
+    a: 'Sim. Atendemos ônibus, micro-ônibus, vans e frotas de empresas. Mande o modelo e a quantidade de veículos pelo WhatsApp para receber o orçamento.',
   },
   {
     q: 'Qual película é permitida por lei?',
