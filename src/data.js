@@ -15,7 +15,7 @@ import onibusVidroTraseiro from './assets/fotos/onibus-vidro-traseiro.jpg'
 import onibusInterno from './assets/fotos/onibus-interno.jpg'
 import onibusPainelLed from './assets/fotos/onibus-painel-led.jpg'
 
-export const PHOTOS = { fachada, tiggoTraseiraFachada, tiggoInterna, onibusLateral, onibusTraseiraLateral, onibusVidroTraseiro }
+export const PHOTOS = { fachada, tiggoTraseiraFachada, tiggoInterna }
 
 export const BUSINESS = {
   name: "Folha's Film's Som e Acessórios Automotivos",
@@ -105,11 +105,18 @@ export const BOOKING_SERVICES = [
 export const PERIODS = ['Manhã', 'Tarde', 'Noite', 'Fim de semana']
 
 export const GALLERY = [
-  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Película em todos os vidros laterais', img: onibusLateral },
-  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Lateral e traseira com película uniforme', img: onibusTraseiraLateral },
-  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Vidro traseiro grande com película', img: onibusVidroTraseiro },
-  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Interior com iluminação em LED', img: onibusInterno },
-  { car: 'Micro-ônibus', cat: 'Ônibus', desc: 'Painel do teto com detalhes em LED', img: onibusPainelLed },
+  {
+    car: 'Micro-ônibus',
+    cat: 'Ônibus',
+    desc: 'Película em todos os vidros, do para-brisa ao vidro traseiro',
+    slides: [
+      { img: onibusLateral, desc: 'Película em todos os vidros laterais' },
+      { img: onibusTraseiraLateral, desc: 'Lateral e traseira com película uniforme' },
+      { img: onibusVidroTraseiro, desc: 'Vidro traseiro grande com película' },
+      { img: onibusInterno, desc: 'Interior com iluminação em LED' },
+      { img: onibusPainelLed, desc: 'Painel do teto com detalhes em LED' },
+    ],
+  },
   { car: 'Chery Tiggo 7 Turbo', cat: 'Insulfilm', desc: 'Película em todos os vidros, na frente da loja', img: tiggoTraseiraFachada },
   { car: 'Chery Tiggo 7 Turbo', cat: 'Insulfilm', desc: 'Acabamento escuro e uniforme em todo o carro', img: tiggoTraseira },
   { car: 'Visão de dentro', cat: 'Insulfilm', desc: 'Com a película, de dentro você continua enxergando tudo', img: tiggoInterna },
@@ -122,11 +129,12 @@ export const GALLERY = [
   { car: 'VW Gol', cat: 'Serviços', desc: 'Serviço na parte elétrica do carro', img: golMotor },
 ]
 
+export const DELIVERY_VIDEO = 'videos/video-4.mp4#t=1'
+
 export const VIDEOS = [
   { src: 'videos/video-1.mp4#t=1', title: 'Película no SUV BYD', desc: 'Volta completa no carro depois da aplicação.' },
   { src: 'videos/video-2.mp4#t=3', title: 'Detalhe do acabamento', desc: 'De perto: película lisa e rente à borracha.' },
   { src: 'videos/video-3.mp4#t=2', title: 'Câmera de ré no retrovisor', desc: 'Retrovisor com tela: a imagem da ré aparece direto no espelho.' },
-  { src: 'videos/video-4.mp4#t=1', title: 'Carro entregue na porta', desc: 'Leva e traz: buscamos e devolvemos o carro pronto para a cliente.' },
 ]
 
 export const REVIEWS = [

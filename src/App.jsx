@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import {
   Lightbulb, Sun, MonitorSmartphone, Speaker, Palette, Truck, Star, MapPin, Clock,
   ChevronDown, Check, CalendarCheck, Car, Menu, X, Moon, House, HandCoins, UserRound, Store,
-  Bus, Route, KeyRound, Wrench, ThermometerSun, Building2, ShieldCheck,
+  Route, KeyRound, Wrench, ShieldCheck, ChevronLeft, ChevronRight,
 } from 'lucide-react'
 import Logo from './components/Logo'
 import CarTint from './components/CarTint'
 import { Instagram, WhatsApp } from './components/BrandIcons'
 import {
-  BUSINESS, waLink, SERVICES, TINTS, BOOKING_SERVICES, PERIODS, GALLERY, VIDEOS, PHOTOS, REVIEWS, FAQ,
+  BUSINESS, waLink, SERVICES, TINTS, BOOKING_SERVICES, PERIODS, GALLERY, VIDEOS, DELIVERY_VIDEO, PHOTOS, REVIEWS, FAQ,
 } from './data'
 
 const ICONS = { Lightbulb, Sun, MonitorSmartphone, Speaker, Palette, Truck }
@@ -17,7 +17,7 @@ const CAT_ICONS = { Insulfilm: Sun, Som: Speaker, Envelopamento: Palette }
 const NAV = [
   ['#servicos', 'Serviços'],
   ['#leva-e-traz', 'Leva e traz'],
-  ['#onibus', 'Ônibus'],
+  ['#pelicula', 'Simulador'],
   ['#agendar', 'Agendar'],
   ['#trabalhos', 'Trabalhos'],
   ['#videos', 'Vídeos'],
@@ -184,18 +184,42 @@ function Services() {
 function PickupDelivery() {
   const steps = [
     [CalendarCheck, 'Combine pelo WhatsApp', 'Diga o serviço, o endereço e o melhor horário.'],
-    [KeyRound, 'Buscamos seu carro', 'Pegamos o carro em casa ou no trabalho, no horário marcado.'],
+    [KeyRound, 'Buscamos na sua casa', 'Pegamos o carro na sua porta ou no trabalho, no horário marcado.'],
     [Wrench, 'Serviço com capricho', 'Película, som ou multimídia feitos na loja, sem pressa.'],
-    [Route, 'Devolvemos pronto', 'O carro volta para você no endereço combinado.'],
+    [Route, 'Entregamos pronto', 'O carro volta para a sua casa no horário combinado.'],
+  ]
+  const perks = [
+    [Clock, 'Sem perder tempo', 'Você não precisa sair de casa nem faltar no trabalho.'],
+    [Moon, 'No seu horário', 'Busca e entrega de manhã, à noite ou no fim de semana.'],
+    [ShieldCheck, 'Carro bem cuidado', 'Quem busca e entrega é o próprio Claudiney.'],
   ]
   return (
-    <section className="section section-alt" id="leva-e-traz">
+    <section className="section section-alt delivery" id="leva-e-traz">
       <div className="container">
-        <SectionHead
-          kicker="Leva e traz"
-          title="Seu carro vai e volta, você nem sai de casa"
-          sub="Sem tempo de ir até a loja? A gente busca o carro, faz o serviço e entrega pronto onde você estiver."
-        />
+        <div className="delivery-in">
+          <div className="delivery-copy reveal">
+            <span className="kicker">Leva e traz</span>
+            <h2>Buscamos seu carro em casa e <span className="hl">entregamos pronto</span></h2>
+            <p>
+              Sem tempo de ir até a loja? A gente vai até a sua casa, leva o carro, faz o serviço com capricho
+              e devolve na sua porta. Você só combina pelo WhatsApp.
+            </p>
+            <div className="why one">
+              {perks.map(([Icon, t, d]) => (
+                <div key={t} className="why-item"><Icon size={22} /><div><strong>{t}</strong><span>{d}</span></div></div>
+              ))}
+            </div>
+            <div className="hero-ctas">
+              <WaButton text="Olá! Vim pelo site e quero que busquem meu carro em casa (leva e traz). Meu carro é: ">
+                Quero que busquem meu carro
+              </WaButton>
+            </div>
+          </div>
+          <figure className="video-card card delivery-video reveal">
+            <video src={DELIVERY_VIDEO} controls muted playsInline preload="metadata" />
+            <figcaption><strong>Carro entregue na porta</strong><span>Busca e entrega na casa da cliente.</span></figcaption>
+          </figure>
+        </div>
         <ol className="steps">
           {steps.map(([Icon, t, d], i) => (
             <li className="step reveal" key={t}>
@@ -206,49 +230,34 @@ function PickupDelivery() {
             </li>
           ))}
         </ol>
-        <div className="center reveal">
-          <WaButton text="Olá! Vim pelo site e quero usar o leva e traz. Meu carro é: ">Quero o leva e traz</WaButton>
-        </div>
       </div>
     </section>
   )
 }
 
-function Buses() {
-  const perks = [
-    [ThermometerSun, 'Menos calor', 'Mais conforto para os passageiros e menos esforço do ar-condicionado.'],
-    [ShieldCheck, 'Privacidade', 'Passageiros e bagagens protegidos dos olhares de fora.'],
-    [Bus, 'Micro-ônibus e vans', 'Ônibus de turismo, fretamento, escolar e vans executivas.'],
-    [Building2, 'Frotas de empresas', 'Orçamento para vários veículos e visual padronizado.'],
-  ]
+function Slider({ item }) {
+  const [i, setI] = useState(0)
+  const n = item.slides.length
+  const go = (d) => setI((v) => (v + d + n) % n)
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % n), 4000)
+    return () => clearInterval(t)
+  }, [n, i])
   return (
-    <section className="section" id="onibus">
-      <div className="container fleet">
-        <div className="fleet-copy reveal">
-          <span className="kicker">Ônibus, micro-ônibus e vans</span>
-          <h2>Insulfilm também para veículos grandes</h2>
-          <p>
-            Aplicamos película em micro-ônibus, ônibus e vans com o mesmo capricho dos carros:
-            vidros grandes com acabamento liso e uniforme do primeiro ao último.
-          </p>
-          <div className="why">
-            {perks.map(([Icon, t, d]) => (
-              <div key={t} className="why-item"><Icon size={22} /><div><strong>{t}</strong><span>{d}</span></div></div>
-            ))}
-          </div>
-          <div className="hero-ctas">
-            <WaButton text="Olá! Vim pelo site e quero orçamento de insulfilm para ônibus/van. Modelo e quantidade: ">
-              Orçamento para ônibus e vans
-            </WaButton>
-          </div>
+    <figure className="shot">
+      <div className="shot-img photo slider">
+        <span className="shot-cat">{item.cat}</span>
+        <div className="slides" style={{ transform: `translateX(-${i * 100}%)` }}>
+          {item.slides.map((s) => <img key={s.desc} src={s.img} alt={`${item.car}: ${s.desc}`} loading="lazy" />)}
         </div>
-        <div className="fleet-photos reveal">
-          <div className="photo big"><img src={PHOTOS.onibusLateral} alt="Micro-ônibus com película em todos os vidros laterais" loading="lazy" /></div>
-          <div className="photo"><img src={PHOTOS.onibusVidroTraseiro} alt="Vidro traseiro de micro-ônibus com película" loading="lazy" /></div>
-          <div className="photo"><img src={PHOTOS.onibusTraseiraLateral} alt="Lateral e traseira de micro-ônibus com película" loading="lazy" /></div>
+        <button className="slide-btn prev" onClick={() => go(-1)} aria-label="Foto anterior"><ChevronLeft size={20} /></button>
+        <button className="slide-btn next" onClick={() => go(1)} aria-label="Próxima foto"><ChevronRight size={20} /></button>
+        <div className="slide-dots">
+          {item.slides.map((s, k) => <button key={s.desc} className={k === i ? 'on' : ''} onClick={() => setI(k)} aria-label={`Foto ${k + 1}`} />)}
         </div>
       </div>
-    </section>
+      <figcaption><strong>{item.car} · {i + 1}/{n}</strong><span>{item.slides[i].desc}</span></figcaption>
+    </figure>
   )
 }
 
@@ -358,7 +367,7 @@ function Gallery() {
           {cats.map((c) => <button key={c} className={cat === c ? 'active' : ''} onClick={() => setCat(c)}>{c}</button>)}
         </div>
         <div className="gallery">
-          {list.map((g) => (
+          {list.map((g) => g.slides ? <Slider key={g.car + g.desc} item={g} /> : (
             <figure className="shot" key={g.car + g.desc}>
               <div className="shot-img photo">
                 <span className="shot-cat">{g.cat}</span>
@@ -382,7 +391,7 @@ function Videos() {
   return (
     <section className="section" id="videos">
       <div className="container">
-        <SectionHead kicker="Vídeos" title="Veja o trabalho de perto" sub="Película no SUV BYD, câmera de ré no retrovisor e carro entregue na porta da cliente." />
+        <SectionHead kicker="Vídeos" title="Veja o trabalho de perto" sub="Película no SUV BYD e câmera de ré instalada no retrovisor." />
         <div className="videos">
           {VIDEOS.map((v) => (
             <figure className="video-card card reveal" key={v.src}>
@@ -547,7 +556,6 @@ export default function App() {
         <TrustBar />
         <Services />
         <PickupDelivery />
-        <Buses />
         <Simulator />
         <Booking />
         <Gallery />
