@@ -8,7 +8,7 @@ import Logo from './components/Logo'
 import CarTint from './components/CarTint'
 import { Instagram, WhatsApp } from './components/BrandIcons'
 import {
-  BUSINESS, waLink, SERVICES, TINTS, BOOKING_SERVICES, PERIODS, GALLERY, VIDEOS, DELIVERY_VIDEO, PHOTOS, REVIEWS, FAQ,
+  BUSINESS, waLink, SERVICES, TINTS, BOOKING_SERVICES, PERIODS, GALLERY, VIDEOS, PHOTOS, REVIEWS, FAQ,
 } from './data'
 
 const ICONS = { Lightbulb, Sun, MonitorSmartphone, Speaker, Palette, Truck }
@@ -204,21 +204,17 @@ function PickupDelivery() {
               Sem tempo de ir até a loja? A gente vai até a sua casa, leva o carro, faz o serviço com capricho
               e devolve na sua porta. Você só combina pelo WhatsApp.
             </p>
-            <div className="why one">
-              {perks.map(([Icon, t, d]) => (
-                <div key={t} className="why-item"><Icon size={22} /><div><strong>{t}</strong><span>{d}</span></div></div>
-              ))}
-            </div>
             <div className="hero-ctas">
               <WaButton text="Olá! Vim pelo site e quero que busquem meu carro em casa (leva e traz). Meu carro é: ">
                 Quero que busquem meu carro
               </WaButton>
             </div>
           </div>
-          <figure className="video-card card delivery-video reveal">
-            <video src={DELIVERY_VIDEO} controls muted playsInline preload="metadata" />
-            <figcaption><strong>Carro entregue na porta</strong><span>Busca e entrega na casa da cliente.</span></figcaption>
-          </figure>
+          <div className="why one delivery-perks card reveal">
+            {perks.map(([Icon, t, d]) => (
+              <div key={t} className="why-item"><Icon size={22} /><div><strong>{t}</strong><span>{d}</span></div></div>
+            ))}
+          </div>
         </div>
         <ol className="steps">
           {steps.map(([Icon, t, d], i) => (
@@ -391,7 +387,7 @@ function Videos() {
   return (
     <section className="section" id="videos">
       <div className="container">
-        <SectionHead kicker="Vídeos" title="Veja o trabalho de perto" sub="Película no SUV BYD e câmera de ré instalada no retrovisor." />
+        <SectionHead kicker="Vídeos" title="Veja o trabalho de perto" sub="Película no SUV BYD, câmera de ré no retrovisor e carro entregue na porta da cliente." />
         <div className="videos">
           {VIDEOS.map((v) => (
             <figure className="video-card card reveal" key={v.src}>

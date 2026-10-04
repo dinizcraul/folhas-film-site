@@ -520,7 +520,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .delivery-copy p { color: var(--muted); margin-top: 16px; font-size: 1.08rem; max-width: 560px; }
 .delivery-copy .hero-ctas { margin-top: 30px; }
 .why.one { grid-template-columns: 1fr; }
-.delivery-video { max-width: 320px; justify-self: center; width: 100%; }
+.delivery-perks { margin-top: 0; padding: 32px; gap: 24px; }
 
 /* Galeria: fotos do ônibus em carrossel */
 .slider .slides { display: flex; height: 100%; transition: transform .5s ease; }
@@ -538,7 +538,7 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .slide-dots button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, .45); transition: width .2s, background .2s; }
 .slide-dots button.on { width: 22px; border-radius: 999px; background: var(--accent); }
 
-.videos { grid-template-columns: repeat(3, minmax(0, 320px)); }
+.videos { grid-template-columns: repeat(4, minmax(0, 280px)); }
 @media (max-width: 1024px) { .videos { grid-template-columns: repeat(2, minmax(0, 320px)); } }
 @media (max-width: 860px) { .delivery-in { grid-template-columns: 1fr; gap: 40px; } }
 @media (max-width: 560px) {

@@ -129,12 +129,11 @@ export const GALLERY = [
   { car: 'VW Gol', cat: 'Serviços', desc: 'Serviço na parte elétrica do carro', img: golMotor },
 ]
 
-export const DELIVERY_VIDEO = 'videos/video-4.mp4#t=1'
-
 export const VIDEOS = [
   { src: 'videos/video-1.mp4#t=1', title: 'Película no SUV BYD', desc: 'Volta completa no carro depois da aplicação.' },
   { src: 'videos/video-2.mp4#t=3', title: 'Detalhe do acabamento', desc: 'De perto: película lisa e rente à borracha.' },
   { src: 'videos/video-3.mp4#t=2', title: 'Câmera de ré no retrovisor', desc: 'Retrovisor com tela: a imagem da ré aparece direto no espelho.' },
+  { src: 'videos/video-4.mp4#t=1', title: 'Carro entregue na porta', desc: 'Leva e traz: buscamos e entregamos o carro pronto na casa da cliente.' },
 ]
 
 export const REVIEWS = [
