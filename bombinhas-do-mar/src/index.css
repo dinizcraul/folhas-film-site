@@ -410,6 +410,7 @@ svg {
 
 .hero-fatos li {
   display: grid;
+  align-content: start;
   gap: 4px;
   max-width: 14ch;
 }
@@ -433,7 +434,7 @@ svg {
   position: relative;
   width: 100%;
   max-width: 560px;
-  aspect-ratio: 10 / 9;
+  aspect-ratio: 10 / 7.92;
   margin-inline: auto;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -443,7 +444,7 @@ svg {
   position: absolute;
   bottom: 0;
   width: 8%;
-  height: 9%;
+  height: 10.2%;
   background: var(--esmalte-sombra);
   border-radius: 40% 40% 50% 50% / 30% 30% 70% 70%;
 }
@@ -460,8 +461,8 @@ svg {
   position: absolute;
   left: 3%;
   right: 3%;
-  top: 45%;
-  bottom: 5%;
+  top: 37.5%;
+  bottom: 5.7%;
   background: var(--esmalte);
   border-radius: 7% 7% 26% 26% / 9% 9% 40% 40%;
   box-shadow:
@@ -473,8 +474,8 @@ svg {
   position: absolute;
   left: 6.5%;
   right: 6.5%;
-  top: 48.5%;
-  bottom: 8.5%;
+  top: 41.5%;
+  bottom: 9.7%;
   background: var(--esmalte-dentro);
   border-radius: 3% 3% 28% 28% / 4% 4% 40% 40%;
 }
@@ -484,8 +485,8 @@ svg {
   position: absolute;
   left: 6.5%;
   right: 6.5%;
-  top: 54%;
-  bottom: 8.5%;
+  top: 47.7%;
+  bottom: 9.7%;
   overflow: hidden;
   border-radius: 0 0 28% 28% / 0 0 46% 46%;
   background: linear-gradient(var(--agua-1), var(--agua-2));
@@ -512,7 +513,7 @@ svg {
   position: absolute;
   left: 38%;
   width: 24%;
-  top: 5%;
+  top: 1.1%;
   animation: surgir 0.35s ease-out both;
 }
 
@@ -533,7 +534,7 @@ svg {
 
 .bomba-caindo,
 .bomba-efervescendo {
-  top: 42.7%;
+  top: 34.9%;
   transition: top var(--queda) cubic-bezier(0.55, 0, 1, 0.45);
 }
 
@@ -562,7 +563,7 @@ svg {
   position: absolute;
   left: 35%;
   width: 30%;
-  top: 30.7%;
+  top: 21.2%;
   -webkit-mask-image: linear-gradient(#000 70%, rgba(0, 0, 0, 0.5) 70%);
   mask-image: linear-gradient(#000 70%, rgba(0, 0, 0, 0.5) 70%);
 }
@@ -1424,6 +1425,8 @@ fieldset {
   .hero-grade {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: 'intro' 'demo' 'extra';
+    max-width: 600px;
+    row-gap: 18px;
   }
 
   .duas-colunas,
@@ -1493,6 +1496,10 @@ fieldset {
 
   .barra-visivel {
     transform: none;
+  }
+
+  .rodape {
+    padding-bottom: calc(40px + 72px + env(safe-area-inset-bottom, 0px));
   }
 
   .barra-bomba {
