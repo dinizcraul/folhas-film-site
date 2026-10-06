@@ -36,7 +36,7 @@ Cada `git push` na branch `main` publica a versão nova sozinho. Escolha uma das
    - **Build command**: `npm run build`
    - **Deploy command**: `npx wrangler deploy`
    - **Root directory**: deixe em branco
-4. Clique em **Deploy**. O site fica em `mar-de-bolhas.<sua-conta>.workers.dev`.
+4. Clique em **Save and Deploy**. O site fica em `mar-de-bolhas.<sua-conta>.workers.dev`.
 
 Domínio próprio: abra o Worker, vá em **Settings > Domains & Routes > Add > Custom Domain**. No Workers, o domínio precisa estar com o DNS no Cloudflare.
 
@@ -56,4 +56,4 @@ No Pages, dá para usar um domínio cujo DNS está fora do Cloudflare, com um re
 
 - O Node usado no build vem do `.nvmrc` (22). Se precisar forçar, crie a variável `NODE_VERSION` = `22` nas configurações de build.
 - O arquivo `public/_headers` vai junto para `dist/` e aplica cabeçalhos básicos de segurança.
-- Se o projeto estiver dentro do repositório `folhas-film-site`, preencha **Root directory** com `bombinhas-do-mar`.
+- Se o projeto ficar numa subpasta de outro repositório, preencha **Root directory** com o nome dessa pasta.

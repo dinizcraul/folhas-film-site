@@ -74,12 +74,15 @@ export default function FizzTub() {
   const efervescer = (corBomba) => {
     const cena = cenaRef.current
     const bomba = bombaRef.current
-    if (!cena || !bomba || !motorRef.current) return
+    const agua = aguaRef.current
+    if (!cena || !bomba || !agua || !motorRef.current) return
     const rc = cena.getBoundingClientRect()
     const rb = bomba.getBoundingClientRect()
+    // A bomba pode ainda estar terminando a queda: a altura vem da superfície da água,
+    // onde a linha de 42% dela para por definição
     motorRef.current.efervescer({
       x: rb.left - rc.left + rb.width / 2,
-      y: rb.top - rc.top + rb.height * 0.42,
+      y: agua.offsetTop,
       r: (rb.width / 2) * 0.9,
       cor: corBomba,
       duracao: FIZZ_MS * 0.85,
